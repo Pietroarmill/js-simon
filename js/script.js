@@ -16,21 +16,22 @@ startBtn.addEventListener("click", function() {
     }   else if ( userChoice === 2 ) {
         timer = 21;
     }   else {
-        timer = 5;
+        timer = 6;
     }
 
     let numberString =  document.getElementById("rnd-numbers");
-    const arrayRndNumbers = [];
     // const arrayUserNumbers = [];
     
+    const arrayRndNumbers = [];
+    console.log(arrayRndNumbers);
 
-    for (let i = 0; i < 5; i++) {
+    do {
         const thisNumber = getIntNumbers(1, 100);
-        if ( !arrayRndNumbers.includes(thisNumber) ) {
+        if ( !arrayRndNumbers.includes(thisNumber)) {
             arrayRndNumbers.push(thisNumber);
         }
-    }
-    console.log(arrayRndNumbers);
+    } while ( arrayRndNumbers.length != 5 );
+    console.log(arrayRndNumbers.length);
 
     // []parte un countdown di 30 secondi 
     // []al termine del countdown i numeri spariscono 
@@ -53,6 +54,7 @@ startBtn.addEventListener("click", function() {
                     arrayCorrectNumbers.push(userNumber)
                     let userCorrectNumbers = document.getElementById("user-numbers");
                 }
+                console.log(userNumber);
                 console.log(arrayCorrectNumbers.length,"i numeri indovinati");
                 console.log(":",arrayCorrectNumbers);
                 userCorrectNumbers.innerHTML = `Hai indovinato ${arrayCorrectNumbers.length} numeri: ${arrayCorrectNumbers}.`
