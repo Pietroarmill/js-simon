@@ -6,10 +6,20 @@
 
 // []al click di un pulsante vengono generati e visualizzati a schermo 5 numeri casuali
 const startBtn = document.getElementById("start");
-const timer = 9995;
+// const timer = 9995;
 
 startBtn.addEventListener("click", function() {
-    let numberString =  document.getElementById("rnd-numbers")
+    let timer;
+    const userChoice = parseInt(document.getElementById("difficolta").value);
+    if( userChoice === 1 ) {
+        timer = 31;
+    }   else if ( userChoice === 2 ) {
+        timer = 21;
+    }   else {
+        timer = 5;
+    }
+
+    let numberString =  document.getElementById("rnd-numbers");
     const arrayRndNumbers = [];
     // const arrayUserNumbers = [];
     
