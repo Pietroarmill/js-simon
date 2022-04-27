@@ -31,11 +31,12 @@ startBtn.addEventListener("click", function() {
     let myInterval = setInterval(function(){
 
         counter--
-        console.log(counter);
+        // console.log(counter);
         if (counter <= -1) {
             const arrayCorrectNumbers = [];
 
             for (let i = 0; i < arrayRndNumbers.length; i++) {
+
                 const userNumber = parseInt(prompt("Dimmi un numero che hai visto."));
                 let userCorrectNumbers = document.getElementById("user-numbers")
                 if ( arrayRndNumbers.includes(userNumber) && !arrayCorrectNumbers.includes(userNumber)) {
@@ -54,8 +55,8 @@ startBtn.addEventListener("click", function() {
             countdown.innerHTML = "Tempo scaduto!!";
 
         }   else {
-            countdown.innerHTML = counter;
-            numberString.innerHTML = arrayRndNumbers;
+            countdown.innerHTML = `tempo a disposizione: ${counter} secondi.`;
+            numberString.innerHTML = `memorizza questi numeri: ${arrayRndNumbers}.`;
         }
     }, 1000);
 
