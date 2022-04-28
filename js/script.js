@@ -64,8 +64,8 @@ startBtn.addEventListener("click", function () {
 
                 const thisRndNumber = arrayRndNumbers[i];
                 const userNumber = parseInt(prompt("Dimmi un numero che hai visto."));
+                arrayUserNumbers.push(userNumber);  
 
-                arrayUserNumbers.push(userNumber);
                 console.log(arrayUserNumbers);
                 if (arrayRndNumbers.includes(userNumber) && !arrayCorrectNumbers.includes(userNumber)) {
                     arrayCorrectNumbers.push(userNumber);
@@ -73,21 +73,25 @@ startBtn.addEventListener("click", function () {
                 } else {
                     arrayIncorrectNumbers.push(userNumber);
                 }
-
-                // if (!arrayCorrectNumbers.includes(thisRndNumber)) {
-
-                //     arrayNotGuessNumbers.push(thisRndNumber);
-                //     console.log("i numeri non indovinati:",arrayNotGuessNumbers);
-
-                // }
                 console.log(userNumber);
                 console.log(arrayCorrectNumbers.length, "i numeri indovinati");
                 userCorrectNumbers.innerHTML = `Hai indovinato ${arrayCorrectNumbers.length} numeri: <span class="green">${arrayCorrectNumbers},</span><span class="red">${arrayIncorrectNumbers}</span>`
                 countdown.innerHTML = ""
-                numbersGuess.innerHTML = `su ${arrayRndNumbers.length}: ${arrayRndNumbers}`;
-                userIncorrectNumbers.innerHTML = `di cui errati ${arrayIncorrectNumbers.length}: `
+                numbersGuess.innerHTML = `su ${arrayRndNumbers.length}: ${arrayRndNumbers}.`;
+                
             }
             clearInterval(myInterval);
+
+            
+
+            for (let i = 0; i < arrayRndNumbers.length; i++) {
+                const thisCurrentNumber = arrayRndNumbers[i];
+                if (!arrayUserNumbers.includes(thisCurrentNumber)) {
+                    arrayNotGuessNumbers.push(thisCurrentNumber);
+                }
+                userIncorrectNumbers.innerHTML = `Numeri mancanti: ${arrayNotGuessNumbers}`;
+
+            }
 
         } else if (counter <= 0) {
             textString.innerHTML = "";
@@ -106,6 +110,7 @@ startBtn.addEventListener("click", function () {
 
     tryAgain.addEventListener("click", function () {
 
+        userIncorrectNumbers.innerHTML = "";
         userCorrectNumbers.innerHTML = "";
         numbersGuess.innerHTML = "";
         tryAgain.style.display = "none"
