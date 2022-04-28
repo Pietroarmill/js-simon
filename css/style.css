@@ -98,9 +98,21 @@ button:active {
     font-size: 1.5rem;
 }
 
+.numbers-box h2 {
+    margin-top: 3rem;
+    text-align: center;
+}
+
 #try-again {
     display: none;
 }
 
 /* TEST */
 
+.green {
+    color: rgb(6, 179, 6);
+}
+
+.red {
+    color: red;
+}
